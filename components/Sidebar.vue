@@ -4,12 +4,38 @@
       <template #logo>
         <!-- ...img logo -->
       </template>
-      <vs-sidebar-item id="discover" to="/dashboard">
+
+      <vs-sidebar-item id="home" to="/dashboard">
         <template #icon>
-          <i class="bx bx-compass"></i>
+          <i class="bx bxs-home"></i>
         </template>
-        Descobrir
+        Página Principal
       </vs-sidebar-item>
+
+      <vs-sidebar-group>
+        <template #header>
+          <vs-sidebar-item arrow>
+            <template #icon>
+              <i class="bx bx-compass"></i>
+            </template>
+            Descobrir
+          </vs-sidebar-item>
+        </template>
+
+        <vs-sidebar-item id="by-region" to="/dashboard/discover/region">
+          <template #icon>
+            <i class="bx bx-map-pin"></i>
+          </template>
+          Por Região
+        </vs-sidebar-item>
+        <vs-sidebar-item id="by-profession" to="/dashboard/discover/profession">
+          <template #icon>
+            <i class="bx bxs-planet"></i>
+          </template>
+          Por Profissão
+        </vs-sidebar-item>
+      </vs-sidebar-group>
+
       <vs-sidebar-group>
         <template #header>
           <vs-sidebar-item arrow>
@@ -63,30 +89,35 @@
           Trabalhos
         </vs-sidebar-item>
       </vs-sidebar-group>
+
       <vs-sidebar-item id="apreciations">
         <template #icon>
           <i class="bx bxs-book-heart"></i>
         </template>
         Apreciações
       </vs-sidebar-item>
+
       <vs-sidebar-item id="inbox">
         <template #icon>
           <i class="bx bxs-inbox"></i>
         </template>
         Mensagens
       </vs-sidebar-item>
+
       <vs-sidebar-item id="account">
         <template #icon>
           <i class="bx bxs-cog"></i>
         </template>
         Conta
       </vs-sidebar-item>
+
       <vs-sidebar-item id="chat">
         <template #icon>
           <i class="bx bx-chat"></i>
         </template>
         Ajuda
       </vs-sidebar-item>
+
       <template #footer>
         <vs-row justify="space-between">
           <vs-button primary flat>
@@ -97,7 +128,7 @@
           <vs-avatar badge-color="danger" history danger circle>
             <template #badge>28</template>
             <img
-              src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+              src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
               alt
             />
           </vs-avatar>

@@ -29,7 +29,7 @@
 
               <div class="new">
                 Já tem uma conta?
-                <nuxt-link to="/app/login">Inicie a sua sessão.</nuxt-link>
+                <nuxt-link to="/app/signin">Inicie a sua sessão.</nuxt-link>
               </div>
             </div>
           </template>

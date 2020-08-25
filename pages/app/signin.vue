@@ -21,7 +21,7 @@
 
               <div class="new">
                 Ainda não tem conta?
-                <nuxt-link to="/app">Crie uma nova.</nuxt-link>
+                <nuxt-link to="/app/signup">Crie uma nova.</nuxt-link>
               </div>
               <div class="new">
                 <nuxt-link to="/app/forgotten"
