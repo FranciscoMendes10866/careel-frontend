@@ -8,37 +8,18 @@
         <div class="center width">
           <template>
             <h4 class="not-margin">
-              Bem-vindo ao
-              <b>Damasus</b>
+              Recupeção da
+              <b>Palavra-passe.</b>
             </h4>
           </template>
 
           <div class="con-form">
             <vs-input v-model="registerEmail" placeholder="Email" />
-            <vs-input v-model="registerPassword" placeholder="Palavra-passe" />
-            <div class="flex">
-              <vs-radio v-model="picked" label-before val="1" class="m-y"
-                >Talento</vs-radio
-              >
-              <vs-radio v-model="picked" label-before val="2" class="m-y"
-                >Patrão</vs-radio
-              >
-            </div>
           </div>
 
           <template>
-            <div class="footer-dialog">
-              <vs-button block>Criar conta.</vs-button>
-
-              <div class="new">
-                Já tem uma conta?
-                <nuxt-link to="/app/login">Inicie a sua sessão.</nuxt-link>
-              </div>
-              <div class="new">
-                <nuxt-link to="/app/forgotten"
-                  >Esqueceu-se da palavra-passe?</nuxt-link
-                >
-              </div>
+            <div class="footer-dialog m-y">
+              <vs-button block>Submeter pedido.</vs-button>
             </div>
           </template>
         </div>
@@ -71,12 +52,6 @@ getVar(var) {
 
 .con-form {
   width: 100%;
-
-  .flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
 
   .vs-input-content {
     margin: 10px 0px;
@@ -123,10 +98,8 @@ getVar(var) {
 }
 
 .m-y {
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
-
 .back {
     position: fixed;
     margin-left: 140px;

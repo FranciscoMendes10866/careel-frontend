@@ -4,7 +4,7 @@
       <template #logo>
         <!-- ...img logo -->
       </template>
-      <vs-sidebar-item id="home" to="/app">
+      <vs-sidebar-item id="home" to="/dashboard">
         <template #icon>
           <i class="bx bx-home"></i>
         </template>

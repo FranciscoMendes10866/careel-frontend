@@ -17,8 +17,8 @@
         license
       </vs-navbar-item>
       <template #right>
-        <vs-button flat>Login</vs-button>
-        <vs-button>Get Started</vs-button>
+        <vs-button flat to="/app/login">Iniciar sessão.</vs-button>
+        <vs-button to="/app">Criar conta.</vs-button>
       </template>
     </vs-navbar>
   </div>

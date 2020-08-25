@@ -16,23 +16,15 @@
           <div class="con-form">
             <vs-input v-model="registerEmail" placeholder="Email" />
             <vs-input v-model="registerPassword" placeholder="Palavra-passe" />
-            <div class="flex">
-              <vs-radio v-model="picked" label-before val="1" class="m-y"
-                >Talento</vs-radio
-              >
-              <vs-radio v-model="picked" label-before val="2" class="m-y"
-                >Patrão</vs-radio
-              >
-            </div>
           </div>
 
           <template>
-            <div class="footer-dialog">
-              <vs-button block>Criar conta.</vs-button>
+            <div class="footer-dialog m-y">
+              <vs-button block>Iniciar sessão.</vs-button>
 
               <div class="new">
-                Já tem uma conta?
-                <nuxt-link to="/app/login">Inicie a sua sessão.</nuxt-link>
+                Ainda não tem conta?
+                <nuxt-link to="/app">Crie uma nova.</nuxt-link>
               </div>
               <div class="new">
                 <nuxt-link to="/app/forgotten"
@@ -71,12 +63,6 @@ getVar(var) {
 
 .con-form {
   width: 100%;
-
-  .flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
 
   .vs-input-content {
     margin: 10px 0px;
@@ -123,8 +109,7 @@ getVar(var) {
 }
 
 .m-y {
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .back {
