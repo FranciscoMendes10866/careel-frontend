@@ -4,7 +4,7 @@
       <template #logo>
         <!-- ...img logo -->
       </template>
-      <vs-sidebar-item id="home">
+      <vs-sidebar-item id="home" to="/app">
         <template #icon>
           <i class="bx bx-home"></i>
         </template>
@@ -119,13 +119,16 @@
       <template #footer>
         <vs-row justify="space-between">
           <vs-avatar badge-color="danger" badge-position="top-right">
-            <i class="bx bx-bell"></i>
+            <i class="bx bx-heart"></i>
 
-            <template #badge> 28 </template>
+            <template #badge>28</template>
           </vs-avatar>
 
           <vs-avatar>
-            <img src="/avatars/avatar-5.png" alt="" />
+            <img
+              src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+              alt
+            />
           </vs-avatar>
         </vs-row>
       </template>
