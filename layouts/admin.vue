@@ -1,16 +1,16 @@
 <template>
   <div>
-    <BackButton />
+    <Toolbar />
     <Nuxt />
   </div>
 </template>
 
 <script>
-import BackButton from '@/components/AppBackButton.vue'
+import Toolbar from '@/components/Toolbar.vue'
 
 export default {
   components: {
-    BackButton,
+    Toolbar,
   },
 }
 </script>

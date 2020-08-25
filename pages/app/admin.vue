@@ -5,18 +5,25 @@
         <div class="center width">
           <template>
             <h4 class="not-margin">
-              Recupeção da
-              <b>Palavra-passe</b>.
+              Bem-vindo de volta
+              <b>Admin</b>.
             </h4>
           </template>
 
           <div class="con-form">
             <vs-input v-model="registerEmail" placeholder="Email" />
+            <vs-input v-model="registerPassword" placeholder="Palavra-passe" />
           </div>
 
           <template>
             <div class="footer-dialog m-y">
-              <vs-button block>Submeter pedido.</vs-button>
+              <vs-button block>Iniciar sessão.</vs-button>
+
+              <div class="new">
+                <nuxt-link to="/app/forgotten"
+                  >Esqueceu-se da palavra-passe?</nuxt-link
+                >
+              </div>
             </div>
           </template>
         </div>

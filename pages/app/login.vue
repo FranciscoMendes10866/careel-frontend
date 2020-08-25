@@ -1,15 +1,12 @@
 <template>
   <div class="grid">
-    <vs-button danger circle icon floating class="back" to="/">
-      <i class="bx bx-left-arrow-alt"></i>
-    </vs-button>
     <vs-row class="screen" align="center">
       <vs-col offset="2" w="8" align="center">
         <div class="center width">
           <template>
             <h4 class="not-margin">
               Bem-vindo ao
-              <b>Damasus</b>
+              <b>Damasus</b>.
             </h4>
           </template>
 
@@ -110,11 +107,5 @@ getVar(var) {
 
 .m-y {
   margin-top: 20px;
-}
-
-.back {
-    position: fixed;
-    margin-left: 140px;
-    margin-top: 140px;
 }
 </style>
