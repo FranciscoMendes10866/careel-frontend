@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vs-card>
+    <vs-card type="5">
       <template #title>
         <h3>João Gomes</h3>
       </template>

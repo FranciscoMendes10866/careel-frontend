@@ -18,7 +18,7 @@
                 >Talento</vs-radio
               >
               <vs-radio v-model="picked" label-before val="2" class="m-y"
-                >Patrão</vs-radio
+                >Empregador</vs-radio
               >
             </div>
           </div>
@@ -30,11 +30,6 @@
               <div class="new">
                 Já tem uma conta?
                 <nuxt-link to="/app/login">Inicie a sua sessão.</nuxt-link>
-              </div>
-              <div class="new">
-                <nuxt-link to="/app/forgotten"
-                  >Esqueceu-se da palavra-passe?</nuxt-link
-                >
               </div>
             </div>
           </template>

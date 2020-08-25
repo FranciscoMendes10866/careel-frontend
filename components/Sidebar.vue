@@ -58,11 +58,23 @@
         </vs-sidebar-item>
         <vs-sidebar-item id="portfolio">
           <template #icon>
-            <i class="bx bx-briefcase"></i>
+            <i class="bx bx-package"></i>
           </template>
           Trabalhos
         </vs-sidebar-item>
       </vs-sidebar-group>
+      <vs-sidebar-item id="apreciations">
+        <template #icon>
+          <i class="bx bxs-book-heart"></i>
+        </template>
+        Apreciações
+      </vs-sidebar-item>
+      <vs-sidebar-item id="inbox">
+        <template #icon>
+          <i class="bx bxs-inbox"></i>
+        </template>
+        Mensagens
+      </vs-sidebar-item>
       <vs-sidebar-item id="account">
         <template #icon>
           <i class="bx bxs-cog"></i>
