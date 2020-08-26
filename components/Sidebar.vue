@@ -140,7 +140,7 @@
 <script>
 export default {
   data: () => ({
-    active: 'discover',
+    active: 'home',
   }),
 }
 </script>
