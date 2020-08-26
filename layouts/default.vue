@@ -1,16 +1,19 @@
 <template>
   <div>
     <Navbar />
+    <SupportChat />
     <Nuxt />
   </div>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar.vue'
+import SupportChat from '@/components/SupportChat.vue'
 
 export default {
   components: {
     Navbar,
+    SupportChat,
   },
 }
 </script>
