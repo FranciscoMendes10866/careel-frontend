@@ -125,8 +125,7 @@
             <template #animate>Sair</template>
           </vs-button>
 
-          <vs-avatar badge-color="danger" history danger circle>
-            <template #badge>28</template>
+          <vs-avatar history danger>
             <img
               src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60"
               alt
