@@ -13,8 +13,8 @@
       <vs-navbar-item id="about" :active="active == 'about'">
         Sobre
       </vs-navbar-item>
-      <vs-navbar-item id="learn" :active="active == 'learn'">
-        Aprender
+      <vs-navbar-item id="branding" :active="active == 'branding'">
+        Branding
       </vs-navbar-item>
       <template #right>
         <vs-button flat to="/app/signin">Iniciar sessão.</vs-button>
