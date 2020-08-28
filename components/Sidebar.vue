@@ -90,7 +90,7 @@
         </vs-sidebar-item>
       </vs-sidebar-group>
 
-      <vs-sidebar-item id="apreciations">
+      <vs-sidebar-item id="apreciations" to="/dashboard/apreciations">
         <template #icon>
           <i class="bx bxs-book-heart"></i>
         </template>

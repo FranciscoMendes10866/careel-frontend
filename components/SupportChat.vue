@@ -9,11 +9,11 @@
         @click="activeTooltip1 = true"
       >
         <i class="bx bxs-chat"></i>
-        &nbsp;&nbsp;Suporte
+        &nbsp;&nbsp;Dúvidas
       </vs-button>
       <template #tooltip>
         <div class="content-tooltip">
-          <h4 class="center">Alguma dúvida?</h4>
+          <h4 class="center">Qual é a sua dúvida?</h4>
           <vs-input v-model="supportEmail" type="email" placeholder="Email" />
           <vs-input
             v-model="supportEmail"
