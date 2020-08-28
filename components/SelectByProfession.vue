@@ -31,6 +31,9 @@
             <vs-option label="Ruby Developer" value="Ruby Developer">
               Ruby Developer
             </vs-option>
+            <vs-option label="Elixir Developer" value="Elixir Developer">
+              Elixir Developer
+            </vs-option>
             <vs-option
               label="Full Stack Developer"
               value="Full Stack Developer"
