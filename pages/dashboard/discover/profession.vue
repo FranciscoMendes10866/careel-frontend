@@ -24,9 +24,9 @@ export default {
 
 <style lang="stylus">
 .margin {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 .screen {
-  height: 95vh;
+  height: 97vh;
 }
 </style>

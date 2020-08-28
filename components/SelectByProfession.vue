@@ -97,13 +97,16 @@
           </vs-option-group>
         </vs-select>
       </vs-col>
-      <vs-col w="3">
+      <vs-col w="1">
         <!-- Search Button -->
         <vs-button icon>
           <i class="bx bx-search-alt"></i>
         </vs-button>
       </vs-col>
-      <vs-col w="6">
+      <vs-col w="5">
+        <!-- Empty Col -->
+      </vs-col>
+      <vs-col w="3">
         <!-- Filter Component -->
         <vs-select
           v-model="filterRegion"
@@ -158,5 +161,3 @@ export default {
   }),
 }
 </script>
-
-<style></style>
