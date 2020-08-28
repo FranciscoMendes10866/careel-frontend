@@ -4,17 +4,17 @@
       <template #left>
         <h3>Damasus</h3>
       </template>
-      <vs-navbar-item id="guide" :active="active == 'guide'">
-        Guide
+      <vs-navbar-item id="talents" :active="active == 'talents'">
+        Talentos
       </vs-navbar-item>
-      <vs-navbar-item id="docs" :active="active == 'docs'">
-        Documents
+      <vs-navbar-item id="employers" :active="active == 'employers'">
+        Empresas
       </vs-navbar-item>
-      <vs-navbar-item id="components" :active="active == 'components'">
-        Components
+      <vs-navbar-item id="about" :active="active == 'about'">
+        Sobre
       </vs-navbar-item>
-      <vs-navbar-item id="license" :active="active == 'license'">
-        license
+      <vs-navbar-item id="learn" :active="active == 'learn'">
+        Aprender
       </vs-navbar-item>
       <template #right>
         <vs-button flat to="/app/signin">Iniciar sessão.</vs-button>
@@ -26,7 +26,7 @@
 <script>
 export default {
   data: () => ({
-    active: 'guide',
+    active: 'talents',
   }),
 }
 </script>

@@ -2,6 +2,7 @@
   <div>
     <Navbar />
     <SupportChat />
+    <TermsConditions />
     <Nuxt />
   </div>
 </template>
@@ -9,11 +10,13 @@
 <script>
 import Navbar from '@/components/Navbar.vue'
 import SupportChat from '@/components/SupportChat.vue'
+import TermsConditions from '@/components/TermsConditions.vue'
 
 export default {
   components: {
     Navbar,
     SupportChat,
+    TermsConditions,
   },
 }
 </script>
