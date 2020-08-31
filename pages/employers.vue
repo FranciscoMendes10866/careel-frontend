@@ -3,7 +3,7 @@
     <!-- Hero landing -->
     <vs-row class="row" align="center" justify="center">
       <vs-col lg="6" md="6" sm="12" xs="12">
-        <h1>Contrua a sua equipa de sonho.</h1>
+        <h1>Contrua a sua <span>equipa de sonho</span>.</h1>
         <p class="mt-30">
           Damasus é a forma mais rápida e fácil de encontrar profissionais na
           área do desenvolvimento web e de Design.
