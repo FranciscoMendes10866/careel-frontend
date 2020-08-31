@@ -11,8 +11,8 @@
           </template>
 
           <div class="con-form">
-            <vs-input v-model="registerEmail" placeholder="Email" />
-            <vs-input v-model="registerPassword" placeholder="Palavra-passe" />
+            <vs-input placeholder="Email" />
+            <vs-input placeholder="Palavra-passe" />
             <div class="flex">
               <vs-radio v-model="picked" label-before val="1" class="m-y"
                 >Talento</vs-radio
@@ -21,6 +21,15 @@
                 >Empregador</vs-radio
               >
             </div>
+            <vs-checkbox v-model="option" primary class="ch-m-y">
+              Li e aceito os&nbsp;
+              <nuxt-link class="dec" to="/terms"
+                ><b>Termos e Condições</b></nuxt-link
+              >&nbsp;do Damasus.
+              <template #icon>
+                <i class="bx bx-check"></i>
+              </template>
+            </vs-checkbox>
           </div>
 
           <template>
@@ -43,6 +52,7 @@ export default {
   layout: 'app',
   data: () => ({
     picked: 1,
+    option: false,
   }),
 }
 </script>
@@ -116,6 +126,16 @@ getVar(var) {
 
 .m-y {
   margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.dec {
+  text-decoration: none;
+  color: black;
+}
+
+.ch-m-y {
+  margin-top: 5px;
   margin-bottom: 20px;
 }
 </style>

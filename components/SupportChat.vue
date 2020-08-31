@@ -14,13 +14,8 @@
       <template #tooltip>
         <div class="content-tooltip">
           <h4 class="center">Qual é a sua dúvida?</h4>
-          <vs-input v-model="supportEmail" type="email" placeholder="Email" />
-          <vs-input
-            v-model="supportEmail"
-            class="mg"
-            type="text"
-            placeholder="Mensagem"
-          />
+          <vs-input type="email" placeholder="Email" />
+          <vs-input class="mg" type="text" placeholder="Mensagem" />
           <footer>
             <vs-button primary block @click="activeTooltip1 = false"
               >Enviar.</vs-button
