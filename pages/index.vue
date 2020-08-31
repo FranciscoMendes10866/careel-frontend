@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <!-- Hero landing -->
-    <vs-row class="row" align="center">
+    <vs-row class="row" align="center" justify="center">
       <vs-col lg="6" md="6" sm="12" xs="12">
         <h1>
           Escolha o emprego
@@ -16,7 +16,7 @@
           >Começar agora!</vs-button
         >
       </vs-col>
-      <vs-col lg="6" md="6" sm="12" xs="12">
+      <vs-col lg="5" md="5" sm="12" xs="12">
         <img
           src="https://res.cloudinary.com/dj5iihhqv/image/upload/v1598835554/DAMASUS/sapiens_lifmft.png"
           alt
@@ -24,8 +24,8 @@
       </vs-col>
     </vs-row>
     <!-- Ideal Role -->
-    <vs-row class="row-rest" align="center">
-      <vs-col lg="6" md="6" sm="12" xs="12">
+    <vs-row class="row-rest" align="center" justify="center">
+      <vs-col lg="5" md="5" sm="12" xs="12">
         <img
           src="https://res.cloudinary.com/dj5iihhqv/image/upload/v1598836119/sapiens_1_iakz06.png"
           alt
@@ -44,7 +44,7 @@
       </vs-col>
     </vs-row>
     <!-- Tools -->
-    <vs-row class="row-rest" align="center">
+    <vs-row class="row-rest" align="center" justify="center">
       <vs-col lg="6" md="6" sm="12" xs="12">
         <h1>Trabalhe com as ferramentas que mais ama.</h1>
         <p class="mt-30">
@@ -57,7 +57,7 @@
           >Experimente!</vs-button
         >
       </vs-col>
-      <vs-col lg="6" md="6" sm="12" xs="12">
+      <vs-col lg="5" md="5" sm="12" xs="12">
         <img
           src="https://res.cloudinary.com/dj5iihhqv/image/upload/v1598836599/sapiens_2_ixichk.png"
           alt
@@ -65,14 +65,14 @@
       </vs-col>
     </vs-row>
     <!-- Location -->
-    <vs-row class="row-rest" align="center">
-      <vs-col lg="6" md="6" sm="12" xs="12">
+    <vs-row class="row-rest" align="center" justify="center">
+      <vs-col lg="5" md="5" sm="12" xs="12">
         <img
           src="https://res.cloudinary.com/dj5iihhqv/image/upload/v1598836948/sapiens_3_fjtjfz.png"
           alt
         />
       </vs-col>
-      <vs-col lg="6" md="6" sm="12" xs="12">
+      <vs-col lg="6" md="6" sm="12" xs="12" class="ml-20">
         <h1>Escolha as suas localizações ideais para trabalhar.</h1>
         <p class="mt-30">
           Do mesma maneira que podem usufruir do cargo que mais desejam, ainda
@@ -127,6 +127,9 @@ p {
 }
 .mt-30 {
   margin-top: 30px;
+}
+.ml-20 {
+  margin-left: 20px;
 }
 img {
   background: no-repeat;
