@@ -46,10 +46,9 @@ export default {
 <style>
 .bottom {
   position: fixed;
-  right: 0;
-  bottom: 0;
-  margin-right: 50px;
-  margin-bottom: 30px;
+  right: 70px;
+  bottom: 30px;
+  z-index: 50;
 }
 .mg {
   margin-top: 15px;
