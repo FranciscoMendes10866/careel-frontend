@@ -4,7 +4,7 @@ export default function ({ $axios }, inject) {
     timeout: 10000,
   })
 
-  // Set baseURL to something different
+  // Set baseURL to API URL
   api.setBaseURL('http://localhost:7777/api/v1')
 
   // Inject to context as $api

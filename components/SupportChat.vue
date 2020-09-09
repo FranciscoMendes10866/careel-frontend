@@ -14,12 +14,21 @@
       <template #tooltip>
         <div class="content-tooltip">
           <h4 class="center">Qual é a sua dúvida?</h4>
-          <vs-input type="email" placeholder="Email" />
-          <vs-input class="mg" type="text" placeholder="Mensagem" />
+          <vs-input v-model="email" type="email" placeholder="Email" />
+          <vs-input
+            v-model="subject"
+            class="mg"
+            type="text"
+            placeholder="Subject"
+          />
+          <vs-input
+            v-model="message"
+            class="mg"
+            type="text"
+            placeholder="Mensagem"
+          />
           <footer>
-            <vs-button primary block @click="activeTooltip1 = false"
-              >Enviar.</vs-button
-            >
+            <vs-button primary block @click="SendMessage">Enviar.</vs-button>
             <vs-button transparent dark block @click="activeTooltip1 = false"
               >Cancelar</vs-button
             >
@@ -34,7 +43,25 @@
 export default {
   data: () => ({
     activeTooltip1: false,
+    email: '',
+    message: '',
+    subject: '',
   }),
+  methods: {
+    SendMessage() {
+      const data = {
+        email: this.email,
+        subject: this.subject,
+        message: this.message,
+      }
+      this.$api
+        .post('/support', data)
+        // eslint-disable-next-line no-console
+        .then((res) => console.log(res))
+        // eslint-disable-next-line no-console
+        .catch((err) => console.log(err))
+    },
+  },
 }
 </script>
 
