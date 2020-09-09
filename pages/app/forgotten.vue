@@ -11,12 +11,12 @@
           </template>
 
           <div class="con-form">
-            <vs-input v-model="registerEmail" placeholder="Email" />
+            <vs-input v-model="forgottenEmail" placeholder="Email" />
           </div>
 
           <template>
             <div class="footer-dialog m-y">
-              <vs-button block>Submeter pedido.</vs-button>
+              <vs-button block @click="forgotten">Submeter pedido.</vs-button>
             </div>
           </template>
         </div>
@@ -28,8 +28,30 @@
 export default {
   layout: 'app',
   data: () => ({
-    picked: 1,
+    forgottenEmail: '',
   }),
+  methods: {
+    forgotten() {
+      this.$api
+        .post('/transactional/forgotten_password', {
+          email: this.forgottenEmail,
+        })
+        // eslint-disable-next-line no-console
+        .then(() => (this.openNotification = true))
+        // eslint-disable-next-line no-console
+        .catch((err) => console.log(err))
+      this.$vs.notification({
+        border: 'success',
+        progress: 'auto',
+        duration: 10000,
+        sticky: true,
+        position: 'top-center',
+        title: 'O seu pedido foi processado com sucesso.',
+        text: `Verifique a sua Caixa de Entrada,
+            lá encontrará um email com a sua nova palavra passe.`,
+      })
+    },
+  },
 }
 </script>
 <style lang="stylus">
