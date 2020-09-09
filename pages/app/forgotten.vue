@@ -37,19 +37,31 @@ export default {
           email: this.forgottenEmail,
         })
         // eslint-disable-next-line no-console
-        .then((res) => console.log(res))
-        // eslint-disable-next-line no-console
-        .catch((err) => console.log(err))
-      this.$vs.notification({
-        border: 'success',
-        progress: 'auto',
-        duration: 10000,
-        sticky: true,
-        position: 'top-center',
-        title: 'O seu pedido foi processado com sucesso.',
-        text: `Verifique a sua Caixa de Entrada,
+        .then(() => {
+          this.$vs.notification({
+            border: 'success',
+            progress: 'auto',
+            duration: 10000,
+            sticky: true,
+            position: 'top-center',
+            title: 'O seu pedido foi processado com sucesso.',
+            text: `Verifique a sua Caixa de Entrada,
             lá encontrará um email com a sua nova palavra passe.`,
-      })
+          })
+        })
+        // eslint-disable-next-line no-console
+        .catch(() => {
+          this.$vs.notification({
+            border: 'danger',
+            progress: 'auto',
+            duration: 10000,
+            sticky: true,
+            position: 'top-center',
+            title: 'Occorreu um erro.',
+            text: `Tem a certeza que o email que inseriu insiste?
+            Ou enganou-se no email? Ou escreveu errado?`,
+          })
+        })
     },
   },
 }
