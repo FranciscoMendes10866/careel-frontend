@@ -37,7 +37,7 @@ export default {
           email: this.forgottenEmail,
         })
         // eslint-disable-next-line no-console
-        .then(() => (this.openNotification = true))
+        .then((res) => console.log(res))
         // eslint-disable-next-line no-console
         .catch((err) => console.log(err))
       this.$vs.notification({
