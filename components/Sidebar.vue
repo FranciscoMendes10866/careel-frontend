@@ -111,7 +111,7 @@
         Conta
       </vs-sidebar-item>
 
-      <vs-sidebar-item id="chat">
+      <vs-sidebar-item id="chat" to="/dashboard/help">
         <template #icon>
           <i class="bx bx-chat"></i>
         </template>

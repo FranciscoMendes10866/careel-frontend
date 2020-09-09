@@ -19,7 +19,7 @@
             v-model="subject"
             class="mg"
             type="text"
-            placeholder="Subject"
+            placeholder="Assunto"
           />
           <vs-input
             v-model="message"

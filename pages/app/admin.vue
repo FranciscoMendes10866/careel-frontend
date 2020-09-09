@@ -11,8 +11,8 @@
           </template>
 
           <div class="con-form">
-            <vs-input v-model="registerEmail" placeholder="Email" />
-            <vs-input v-model="registerPassword" placeholder="Palavra-passe" />
+            <vs-input placeholder="Email" />
+            <vs-input placeholder="Palavra-passe" />
           </div>
 
           <template>
@@ -34,9 +34,6 @@
 <script>
 export default {
   layout: 'app',
-  data: () => ({
-    picked: 1,
-  }),
 }
 </script>
 <style lang="stylus">
