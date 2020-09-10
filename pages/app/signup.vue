@@ -11,15 +11,21 @@
           </template>
 
           <div class="con-form">
-            <vs-input primary placeholder="Email" />
             <vs-input
-              v-model="value"
+              :value="registerEmail"
+              primary
+              label="Email"
+              @input="setRegisterEmail"
+            />
+            <vs-input
+              v-model="localPassword"
+              label="Palavra passe"
               primary
               type="password"
-              label-placeholder="Password"
               :progress="getProgress"
               :visible-password="hasVisiblePassword"
               icon-after
+              @input="handleRegisterPassword"
               @click-icon="hasVisiblePassword = !hasVisiblePassword"
             >
               <template #icon>
@@ -27,19 +33,37 @@
                 <i v-else class="bx bx-hide"></i>
               </template>
 
-              <template v-if="getProgress >= 100" #message-success
-                >Secure password</template
+              <template v-if="getProgress == 100" #message-success
+                >Palavra passe segura</template
               >
             </vs-input>
             <div class="flex">
-              <vs-radio v-model="picked" label-before val="1" class="m-y"
+              <vs-radio
+                v-model="picked"
+                :value="registerRole"
+                label-before
+                val="talent"
+                class="m-y"
+                @input="setRegisterRole"
                 >Talento</vs-radio
               >
-              <vs-radio v-model="picked" label-before val="2" class="m-y"
+              <vs-radio
+                v-model="picked"
+                :value="registerRole"
+                label-before
+                val="employer"
+                class="m-y"
+                @input="setRegisterRole"
                 >Empregador</vs-radio
               >
             </div>
-            <vs-checkbox v-model="option" primary class="ch-m-y">
+            <vs-checkbox
+              :value="registerTerms"
+              class="ch-m-y"
+              primary
+              val="true"
+              @input="setRegisterTerms"
+            >
               Li e aceito os&nbsp;
               <nuxt-link class="dec" to="/terms">
                 <b>Termos e Condições</b>
@@ -53,7 +77,7 @@
 
           <template>
             <div class="footer-dialog">
-              <vs-button block>Criar conta.</vs-button>
+              <vs-button block @click.prevent="SignUp">Criar conta.</vs-button>
 
               <div class="new">
                 Já tem uma conta?
@@ -67,43 +91,56 @@
   </div>
 </template>
 <script>
+import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
   layout: 'app',
   data: () => ({
-    picked: 1,
-    option: false,
-    value: '',
+    localPassword: '',
+    picked: 'talent',
     hasVisiblePassword: false,
   }),
   computed: {
+    ...mapState({
+      registerEmail: 'auth/registerEmail',
+      registerPassword: 'auth/registerPassword',
+      registerRole: 'auth/registerRole',
+      registerTerms: 'auth/registerTerms',
+    }),
     getProgress() {
       let progress = 0
-
       // at least one number
-
-      if (/\d/.test(this.value)) {
-        progress += 20
+      if (/\d/.test(this.localPassword)) {
+        progress += 30
       }
-
       // at least one capital letter
-
-      if (/(.*[A-Z].*)/.test(this.value)) {
+      if (/(.*[A-Z].*)/.test(this.localPassword)) {
         progress += 20
       }
-
-      // at menons a lowercase
-
-      if (/(.*[a-z].*)/.test(this.value)) {
-        progress += 20
+      // at least a lowercase
+      if (/(.*[a-z].*)/.test(this.localPassword)) {
+        progress += 25
       }
-
-      // more than 5 digits
-
-      if (this.value.length >= 8) {
-        progress += 20
+      // more than 8 digits
+      if (this.localPassword === null) {
+        progress += 0
+      } else if (this.localPassword.length >= 8) {
+        progress += 25
       }
-
       return progress
+    },
+  },
+  methods: {
+    ...mapMutations({
+      setRegisterEmail: 'auth/setRegisterEmail',
+      setRegisterPassword: 'auth/setRegisterPassword',
+      setRegisterRole: 'auth/setRegisterRole',
+      setRegisterTerms: 'auth/setRegisterTerms',
+    }),
+    ...mapActions({
+      SignUp: 'auth/SignUp',
+    }),
+    handleRegisterPassword() {
+      this.setRegisterPassword(this.localPassword)
     },
   },
 }
