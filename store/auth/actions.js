@@ -1,18 +1,11 @@
 export default {
   // Register actions
   SignUp({ commit, state }) {
-    let terms = state.registerTerms
-    if (terms === 'true') {
-      terms = true
-    } else {
-      // eslint-disable-next-line no-unused-vars
-      terms = false
-    }
     const data = {
       email: state.registerEmail,
       password: state.registerPassword,
       role: state.registerRole,
-      terms_conditions: terms,
+      terms_conditions: state.registerTerms,
     }
     // eslint-disable-next-line no-console
     console.log(data)

@@ -12,10 +12,10 @@
 
           <div class="con-form">
             <vs-input
-              :value="registerEmail"
+              v-model="localEmail"
               primary
               label="Email"
-              @input="setRegisterEmail"
+              @input="handleRegisterEmail"
             />
             <vs-input
               v-model="localPassword"
@@ -40,29 +40,27 @@
             <div class="flex">
               <vs-radio
                 v-model="picked"
-                :value="registerRole"
-                label-before
+                label-after
                 val="talent"
                 class="m-y"
-                @input="setRegisterRole"
+                @input="handleRegisterRole"
                 >Talento</vs-radio
               >
               <vs-radio
                 v-model="picked"
-                :value="registerRole"
-                label-before
+                label-after
                 val="employer"
                 class="m-y"
-                @input="setRegisterRole"
+                @input="handleRegisterRole"
                 >Empregador</vs-radio
               >
             </div>
             <vs-checkbox
-              :value="registerTerms"
+              v-model="localTerms"
               class="ch-m-y"
               primary
               val="true"
-              @input="setRegisterTerms"
+              @input="handleRegisterTerms"
             >
               Li e aceito os&nbsp;
               <nuxt-link class="dec" to="/terms">
@@ -91,21 +89,17 @@
   </div>
 </template>
 <script>
-import { mapState, mapMutations, mapActions } from 'vuex'
+import { mapMutations, mapActions } from 'vuex'
 export default {
   layout: 'app',
   data: () => ({
+    localEmail: '',
     localPassword: '',
+    localTerms: false,
     picked: 'talent',
     hasVisiblePassword: false,
   }),
   computed: {
-    ...mapState({
-      registerEmail: 'auth/registerEmail',
-      registerPassword: 'auth/registerPassword',
-      registerRole: 'auth/registerRole',
-      registerTerms: 'auth/registerTerms',
-    }),
     getProgress() {
       let progress = 0
       // at least one number
@@ -141,6 +135,15 @@ export default {
     }),
     handleRegisterPassword() {
       this.setRegisterPassword(this.localPassword)
+    },
+    handleRegisterRole() {
+      this.setRegisterRole(this.picked)
+    },
+    handleRegisterEmail() {
+      this.setRegisterEmail(this.localEmail)
+    },
+    handleRegisterTerms() {
+      this.setRegisterTerms(this.localTerms)
     },
   },
 }
