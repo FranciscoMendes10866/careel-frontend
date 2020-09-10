@@ -14,12 +14,12 @@
             <vs-input
               v-model="localEmail"
               primary
-              label="Email"
+              placeholder="Email"
               @input="handleRegisterEmail"
             />
             <vs-input
               v-model="localPassword"
-              label="Palavra passe"
+              placeholder="Palavra passe"
               primary
               type="password"
               :progress="getProgress"
