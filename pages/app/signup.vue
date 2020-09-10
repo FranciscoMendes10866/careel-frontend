@@ -11,8 +11,26 @@
           </template>
 
           <div class="con-form">
-            <vs-input placeholder="Email" />
-            <vs-input placeholder="Palavra-passe" />
+            <vs-input primary placeholder="Email" />
+            <vs-input
+              v-model="value"
+              primary
+              type="password"
+              label-placeholder="Password"
+              :progress="getProgress"
+              :visible-password="hasVisiblePassword"
+              icon-after
+              @click-icon="hasVisiblePassword = !hasVisiblePassword"
+            >
+              <template #icon>
+                <i v-if="!hasVisiblePassword" class="bx bx-show-alt"></i>
+                <i v-else class="bx bx-hide"></i>
+              </template>
+
+              <template v-if="getProgress >= 100" #message-success
+                >Secure password</template
+              >
+            </vs-input>
             <div class="flex">
               <vs-radio v-model="picked" label-before val="1" class="m-y"
                 >Talento</vs-radio
@@ -23,9 +41,10 @@
             </div>
             <vs-checkbox v-model="option" primary class="ch-m-y">
               Li e aceito os&nbsp;
-              <nuxt-link class="dec" to="/terms"
-                ><b>Termos e Condições</b></nuxt-link
-              >&nbsp;do Damasus.
+              <nuxt-link class="dec" to="/terms">
+                <b>Termos e Condições</b>
+                &nbsp;do Damasus.</nuxt-link
+              >
               <template #icon>
                 <i class="bx bx-check"></i>
               </template>
@@ -53,7 +72,40 @@ export default {
   data: () => ({
     picked: 1,
     option: false,
+    value: '',
+    hasVisiblePassword: false,
   }),
+  computed: {
+    getProgress() {
+      let progress = 0
+
+      // at least one number
+
+      if (/\d/.test(this.value)) {
+        progress += 20
+      }
+
+      // at least one capital letter
+
+      if (/(.*[A-Z].*)/.test(this.value)) {
+        progress += 20
+      }
+
+      // at menons a lowercase
+
+      if (/(.*[a-z].*)/.test(this.value)) {
+        progress += 20
+      }
+
+      // more than 5 digits
+
+      if (this.value.length >= 8) {
+        progress += 20
+      }
+
+      return progress
+    },
+  },
 }
 </script>
 <style lang="stylus">
