@@ -58,8 +58,7 @@ export default {
             sticky: true,
             position: 'top-center',
             title: 'Occorreu um erro.',
-            text: `Tem a certeza que o email que inseriu insiste?
-            Ou enganou-se no email? Ou escreveu errado?`,
+            text: `Tem a certeza que o email que inseriu existe?`,
           })
         })
     },
