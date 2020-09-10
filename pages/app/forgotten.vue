@@ -11,7 +11,7 @@
           </template>
 
           <div class="con-form">
-            <vs-input v-model="forgottenEmail" placeholder="Email" />
+            <vs-input v-model="forgottenEmail" primary placeholder="Email" />
           </div>
 
           <template>

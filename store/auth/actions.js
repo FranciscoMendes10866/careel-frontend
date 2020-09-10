@@ -26,6 +26,7 @@ export default {
         })
     )
   },
+  // Login actions
   SignIn({ commit, state }) {
     const data = {
       email: state.loginEmail,
@@ -70,8 +71,6 @@ export default {
             commit('setIsPublic', data.user.is_public)
             commit('setIsAdmin', data.user.is_admin)
             // eslint-disable-next-line no-undef
-            // eslint-disable-next-line no-console
-            console.log(data.user.is_admin)
             this.$router.push('/admin')
           } else {
             // eslint-disable-next-line no-console
@@ -80,6 +79,7 @@ export default {
         })
     )
   },
+  // Logout actions
   LogOut({ commit }) {
     commit('setToken', null)
     commit('setRole', null)

@@ -13,6 +13,7 @@
           <div class="con-form">
             <vs-input
               v-model="localEmail"
+              primary
               placeholder="Email"
               @input="handleLoginEmail"
             />
