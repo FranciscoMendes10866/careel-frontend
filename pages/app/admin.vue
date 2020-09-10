@@ -11,13 +11,21 @@
           </template>
 
           <div class="con-form">
-            <vs-input placeholder="Email" />
-            <vs-input placeholder="Palavra-passe" />
+            <vs-input
+              v-model="localEmail"
+              placeholder="Email"
+              @input="handleLoginEmail"
+            />
+            <vs-input
+              v-model="localPassword"
+              placeholder="Palavra passe"
+              @input="handleLoginPassword"
+            />
           </div>
 
           <template>
             <div class="footer-dialog m-y">
-              <vs-button block>Iniciar sessão.</vs-button>
+              <vs-button block @click="AdminSignIn">Iniciar sessão.</vs-button>
 
               <div class="new">
                 <nuxt-link to="/app/forgotten"
@@ -32,8 +40,29 @@
   </div>
 </template>
 <script>
+import { mapMutations, mapActions } from 'vuex'
+
 export default {
   layout: 'app',
+  data: () => ({
+    localEmail: '',
+    localPassword: '',
+  }),
+  methods: {
+    ...mapMutations({
+      setLoginEmail: 'auth/setLoginEmail',
+      setLoginPassword: 'auth/setLoginPassword',
+    }),
+    ...mapActions({
+      AdminSignIn: 'auth/AdminSignIn',
+    }),
+    handleLoginEmail() {
+      this.setLoginEmail(this.localEmail)
+    },
+    handleLoginPassword() {
+      this.setLoginPassword(this.localPassword)
+    },
+  },
 }
 </script>
 <style lang="stylus">

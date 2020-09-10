@@ -36,12 +36,13 @@ export default {
         .post('/auth/sign_in', data)
         // eslint-disable-next-line no-console
         .then(({ data }) => {
-          if (data !== 500 || data !== 400 || data !== 404) {
+          if (data.user.is_admin !== true && data !== 500) {
             commit('setLoginEmail', null)
             commit('setLoginPassword', null)
             commit('setToken', data.token)
             commit('setRole', data.user.role)
             commit('setIsPublic', data.user.is_public)
+            commit('setIsAdmin', data.user.is_admin)
             // eslint-disable-next-line no-undef
             this.$router.push('/dashboard')
           } else {
@@ -50,5 +51,40 @@ export default {
           }
         })
     )
+  },
+  AdminSignIn({ commit, state }) {
+    const data = {
+      email: state.loginEmail,
+      password: state.loginPassword,
+    }
+    return (
+      this.$api
+        .post('/auth/sign_in', data)
+        // eslint-disable-next-line no-console
+        .then(({ data }) => {
+          if (data.user.is_admin !== false && data !== 500) {
+            commit('setLoginEmail', null)
+            commit('setLoginPassword', null)
+            commit('setToken', data.token)
+            commit('setRole', data.user.role)
+            commit('setIsPublic', data.user.is_public)
+            commit('setIsAdmin', data.user.is_admin)
+            // eslint-disable-next-line no-undef
+            // eslint-disable-next-line no-console
+            console.log(data.user.is_admin)
+            this.$router.push('/admin')
+          } else {
+            // eslint-disable-next-line no-console
+            console.log('Ocorreu um erro.')
+          }
+        })
+    )
+  },
+  LogOut({ commit }) {
+    commit('setToken', null)
+    commit('setRole', null)
+    commit('setIsPublic', null)
+    commit('setIsAdmin', null)
+    this.$router.push('/')
   },
 }

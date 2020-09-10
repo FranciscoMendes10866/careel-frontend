@@ -26,6 +26,9 @@ export default {
   setIsPublic(state, isPublic) {
     state.isPublic = isPublic
   },
+  setIsAdmin(state, isAdmin) {
+    state.isAdmin = isAdmin
+  },
   setRole(state, role) {
     state.role = role
   },

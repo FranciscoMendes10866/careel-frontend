@@ -10,5 +10,6 @@ export default () => ({
   // User data
   token: null,
   isPublic: null,
+  isAdmin: null,
   role: null,
 })
