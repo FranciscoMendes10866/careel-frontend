@@ -19,8 +19,19 @@
             <vs-input
               v-model="localPassword"
               placeholder="Palavra passe"
+              primary
+              type="password"
+              :progress="getProgress"
+              :visible-password="hasVisiblePassword"
+              icon-after
               @input="handleLoginPassword"
-            />
+              @click-icon="hasVisiblePassword = !hasVisiblePassword"
+            >
+              <template #icon>
+                <i v-if="!hasVisiblePassword" class="bx bx-show-alt"></i>
+                <i v-else class="bx bx-hide"></i>
+              </template>
+            </vs-input>
           </div>
 
           <template>
@@ -47,6 +58,7 @@ export default {
   data: () => ({
     localEmail: '',
     localPassword: '',
+    hasVisiblePassword: false,
   }),
   methods: {
     ...mapMutations({
