@@ -26,4 +26,29 @@ export default {
         })
     )
   },
+  SignIn({ commit, state }) {
+    const data = {
+      email: state.loginEmail,
+      password: state.loginPassword,
+    }
+    return (
+      this.$api
+        .post('/auth/sign_in', data)
+        // eslint-disable-next-line no-console
+        .then(({ data }) => {
+          if (data !== 500 || data !== 400 || data !== 404) {
+            commit('setLoginEmail', null)
+            commit('setLoginPassword', null)
+            commit('setToken', data.token)
+            commit('setRole', data.user.role)
+            commit('setIsPublic', data.user.is_public)
+            // eslint-disable-next-line no-undef
+            this.$router.push('/dashboard')
+          } else {
+            // eslint-disable-next-line no-console
+            console.log('Ocorreu um erro.')
+          }
+        })
+    )
+  },
 }

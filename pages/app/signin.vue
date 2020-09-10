@@ -11,13 +11,21 @@
           </template>
 
           <div class="con-form">
-            <vs-input v-model="registerEmail" placeholder="Email" />
-            <vs-input v-model="registerPassword" placeholder="Palavra-passe" />
+            <vs-input
+              v-model="localEmail"
+              placeholder="Email"
+              @input="handleLoginEmail"
+            />
+            <vs-input
+              v-model="localPassword"
+              placeholder="Palavra passe"
+              @input="handleLoginPassword"
+            />
           </div>
 
           <template>
             <div class="footer-dialog m-y">
-              <vs-button block>Iniciar sessão.</vs-button>
+              <vs-button block @click="SignIn">Iniciar sessão.</vs-button>
 
               <div class="new">
                 Ainda não tem conta?
@@ -36,11 +44,29 @@
   </div>
 </template>
 <script>
+import { mapMutations, mapActions } from 'vuex'
+
 export default {
   layout: 'app',
   data: () => ({
-    picked: 1,
+    localEmail: '',
+    localPassword: '',
   }),
+  methods: {
+    ...mapMutations({
+      setLoginEmail: 'auth/setLoginEmail',
+      setLoginPassword: 'auth/setLoginPassword',
+    }),
+    ...mapActions({
+      SignIn: 'auth/SignIn',
+    }),
+    handleLoginEmail() {
+      this.setLoginEmail(this.localEmail)
+    },
+    handleLoginPassword() {
+      this.setLoginPassword(this.localPassword)
+    },
+  },
 }
 </script>
 <style lang="stylus">
