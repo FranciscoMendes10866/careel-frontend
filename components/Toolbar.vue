@@ -7,7 +7,7 @@
         </vs-button>
       </template>
       <template #right>
-        <vs-button>Terminar sessão.</vs-button>
+        <vs-button @click="LogOut">Terminar sessão.</vs-button>
       </template>
     </vs-navbar>
     <vs-sidebar v-model="active" absolute :open.sync="activeSidebar">
@@ -143,10 +143,17 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   data: () => ({
     active: 'home',
     activeSidebar: false,
   }),
+  methods: {
+    ...mapActions({
+      LogOut: 'auth/LogOut',
+    }),
+  },
 }
 </script>

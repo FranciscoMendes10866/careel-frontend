@@ -120,7 +120,7 @@
 
       <template #footer>
         <vs-row justify="space-between">
-          <vs-button primary flat>
+          <vs-button primary flat @click="LogOut">
             <i class="bx bx-log-out-circle"></i>
             <template #animate>Sair</template>
           </vs-button>
@@ -137,9 +137,16 @@
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   data: () => ({
     active: 'home',
   }),
+  methods: {
+    ...mapActions({
+      LogOut: 'auth/LogOut',
+    }),
+  },
 }
 </script>
