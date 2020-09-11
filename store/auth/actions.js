@@ -46,24 +46,7 @@ export default {
             commit('setIsAdmin', data.user.is_admin)
             // eslint-disable-next-line no-undef
             this.$router.push('/dashboard')
-          } else {
-            // eslint-disable-next-line no-console
-            console.log('Ocorreu um erro.')
-          }
-        })
-    )
-  },
-  AdminSignIn({ commit, state }) {
-    const clientState = {
-      email: state.loginEmail,
-      password: state.loginPassword,
-    }
-    return (
-      this.$api
-        .post('/auth/sign_in', clientState)
-        // eslint-disable-next-line no-console
-        .then(({ data }) => {
-          if (data.user.is_admin !== false && data !== 500) {
+          } else if (data.user.is_admin !== false && data !== 500) {
             commit('setLoginEmail', null)
             commit('setLoginPassword', null)
             commit('setToken', data.token)
