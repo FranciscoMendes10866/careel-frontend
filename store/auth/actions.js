@@ -70,4 +70,41 @@ export default {
     commit('setIsAdmin', null)
     this.$router.push('/')
   },
+  // Account actions
+  // Become public
+  BecomePublic({ commit, state }) {
+    const publicButton = { is_public: true }
+    return this.$api
+      .put('/account/change_is_public', publicButton, {
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      })
+      .then(({ data }) => {
+        if (data === 200) {
+          commit('setIsPublic', true)
+        } else {
+          // eslint-disable-next-line no-console
+          console.log('Ocorreu um erro.')
+        }
+      })
+  },
+  // Become private
+  BecomePrivate({ commit, state }) {
+    const privateButton = { is_public: false }
+    return this.$api
+      .put('/account/change_is_public', privateButton, {
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      })
+      .then(({ data }) => {
+        if (data === 200) {
+          commit('setIsPublic', false)
+        } else {
+          // eslint-disable-next-line no-console
+          console.log('Ocorreu um erro.')
+        }
+      })
+  },
 }
