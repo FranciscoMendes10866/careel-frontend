@@ -13,4 +13,5 @@ export default () => ({
   isAdmin: null,
   role: null,
   newsletter: null,
+  job: null,
 })

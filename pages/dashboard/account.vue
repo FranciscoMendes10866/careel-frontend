@@ -19,15 +19,22 @@
         <h4>Notícias.</h4>
         <ChangeNewsletter />
       </vs-col>
+      <vs-col v-show="whatRole == 'talent'" w="3">
+        <h4>Emprego.</h4>
+        <ChangeJob />
+      </vs-col>
     </vs-row>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import ChangePassword from '@/components/ChangePassword.vue'
 import ChangeEmail from '@/components/ChangeEmail.vue'
 import ChangeAccountPublic from '@/components/ChangeAccountPublic.vue'
 import ChangeNewsletter from '@/components/ChangeNewsletter.vue'
+import ChangeJob from '@/components/ChangeJob.vue'
 
 export default {
   layout: 'dashboard',
@@ -36,6 +43,12 @@ export default {
     ChangeEmail,
     ChangeAccountPublic,
     ChangeNewsletter,
+    ChangeJob,
+  },
+  computed: {
+    ...mapGetters({
+      whatRole: 'auth/whatRole',
+    }),
   },
 }
 </script>

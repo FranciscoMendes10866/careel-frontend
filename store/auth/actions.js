@@ -45,6 +45,7 @@ export default {
             commit('setIsPublic', data.user.is_public)
             commit('setIsAdmin', data.user.is_admin)
             commit('setNewsletter', data.user.newsletter)
+            commit('setJob', data.user.job)
             // eslint-disable-next-line no-undef
             this.$router.push('/dashboard')
           } else if (data.user.is_admin !== false && data !== 500) {
@@ -55,6 +56,7 @@ export default {
             commit('setIsPublic', data.user.is_public)
             commit('setIsAdmin', data.user.is_admin)
             commit('setNewsletter', data.user.newsletter)
+            commit('setJob', data.user.job)
             // eslint-disable-next-line no-undef
             this.$router.push('/admin')
           } else {
@@ -71,6 +73,7 @@ export default {
     commit('setIsPublic', null)
     commit('setIsAdmin', null)
     commit('setNewsletter', null)
+    commit('setJob', null)
     this.$router.push('/')
   },
   // Account actions
@@ -141,6 +144,43 @@ export default {
       .then(({ data }) => {
         if (data === 200) {
           commit('setNewsletter', false)
+        } else {
+          // eslint-disable-next-line no-console
+          console.log('Ocorreu um erro.')
+        }
+      })
+  },
+  // Job actions
+  // The user found a job
+  FoundJob({ commit, state }) {
+    const found = { job: true }
+    return this.$api
+      .put('/account/change_job', found, {
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      })
+      .then(({ data }) => {
+        if (data === 200) {
+          commit('setJob', true)
+        } else {
+          // eslint-disable-next-line no-console
+          console.log('Ocorreu um erro.')
+        }
+      })
+  },
+  // The user is looking for a job
+  FindingJob({ commit, state }) {
+    const finding = { job: false }
+    return this.$api
+      .put('/account/change_job', finding, {
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      })
+      .then(({ data }) => {
+        if (data === 200) {
+          commit('setJob', false)
         } else {
           // eslint-disable-next-line no-console
           console.log('Ocorreu um erro.')

@@ -14,4 +14,7 @@ export default {
   isSubscribed(state) {
     return state.newsletter
   },
+  foundJob(state) {
+    return state.job
+  },
 }

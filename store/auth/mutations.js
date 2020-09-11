@@ -35,4 +35,7 @@ export default {
   setNewsletter(state, newsletter) {
     state.newsletter = newsletter
   },
+  setJob(state, job) {
+    state.job = job
+  },
 }
