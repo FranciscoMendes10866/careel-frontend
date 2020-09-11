@@ -22,7 +22,6 @@
               placeholder="Palavra passe"
               primary
               type="password"
-              :progress="getProgress"
               :visible-password="hasVisiblePassword"
               icon-after
               @input="handleLoginPassword"

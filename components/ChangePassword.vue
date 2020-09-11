@@ -61,7 +61,7 @@ export default {
       return (
         this.$api
           .put('/account/change_password', componentState, {
-            header: {
+            headers: {
               Authorization: `Bearer ${this.$store.state.auth.token}`,
             },
           })
