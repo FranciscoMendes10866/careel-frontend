@@ -25,13 +25,13 @@ export default {
   }),
   methods: {
     UserSupport() {
-      const data = {
+      const componentState = {
         subject: this.subject,
         message: this.message,
       }
       return (
         this.$api
-          .post('/support/user_support', data, {
+          .post('/support/user_support', componentState, {
             headers: {
               Authorization: `Bearer ${this.$store.state.auth.token}`,
             },
@@ -39,7 +39,8 @@ export default {
           // eslint-disable-next-line no-console
           .then(() => {
             this.$vs.notification({
-              border: 'success',
+              icon: `<i class='bx bx-check' ></i>`,
+              color: 'success',
               progress: 'auto',
               duration: 10000,
               sticky: true,
@@ -52,7 +53,8 @@ export default {
           // eslint-disable-next-line no-console
           .catch(() => {
             this.$vs.notification({
-              border: 'danger',
+              icon: `<i class='bx bx-error' ></i>`,
+              color: 'danger',
               progress: 'auto',
               duration: 10000,
               sticky: true,

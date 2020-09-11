@@ -49,17 +49,40 @@ export default {
   }),
   methods: {
     SendMessage() {
-      const data = {
+      const componentState = {
         email: this.email,
         subject: this.subject,
         message: this.message,
       }
       this.$api
-        .post('/support', data)
+        .post('/support', componentState)
         // eslint-disable-next-line no-console
-        .then((res) => console.log(res))
+        .then(() => {
+          this.$vs.notification({
+            progress: 'auto',
+            duration: 10000,
+            sticky: true,
+            icon: `<i class='bx bx-check' ></i>`,
+            color: 'success',
+            position: 'bottom-center',
+            title: 'O seu pedido foi processado com sucesso.',
+            text: `No prazo de 24h,
+              será respondida a sua questão.`,
+          })
+        })
         // eslint-disable-next-line no-console
-        .catch((err) => console.log(err))
+        .catch(() => {
+          this.$vs.notification({
+            progress: 'auto',
+            duration: 10000,
+            sticky: true,
+            icon: `<i class='bx bx-error' ></i>`,
+            color: 'danger',
+            position: 'bottom-center',
+            title: 'Ocorreu um erro.',
+            text: `Verifique se tem todos os campos devidamente preenchidos.`,
+          })
+        })
     },
   },
 }

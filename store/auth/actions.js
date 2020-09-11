@@ -1,7 +1,7 @@
 export default {
   // Register actions
   SignUp({ commit, state }) {
-    const data = {
+    const clientState = {
       email: state.registerEmail,
       password: state.registerPassword,
       role: state.registerRole,
@@ -9,7 +9,7 @@ export default {
     }
     return (
       this.$api
-        .post('/auth/sign_up', data)
+        .post('/auth/sign_up', clientState)
         // eslint-disable-next-line no-console
         .then(({ data }) => {
           if (data === 200) {
@@ -28,13 +28,13 @@ export default {
   },
   // Login actions
   SignIn({ commit, state }) {
-    const data = {
+    const clientState = {
       email: state.loginEmail,
       password: state.loginPassword,
     }
     return (
       this.$api
-        .post('/auth/sign_in', data)
+        .post('/auth/sign_in', clientState)
         // eslint-disable-next-line no-console
         .then(({ data }) => {
           if (data.user.is_admin !== true && data !== 500) {
@@ -54,13 +54,13 @@ export default {
     )
   },
   AdminSignIn({ commit, state }) {
-    const data = {
+    const clientState = {
       email: state.loginEmail,
       password: state.loginPassword,
     }
     return (
       this.$api
-        .post('/auth/sign_in', data)
+        .post('/auth/sign_in', clientState)
         // eslint-disable-next-line no-console
         .then(({ data }) => {
           if (data.user.is_admin !== false && data !== 500) {
