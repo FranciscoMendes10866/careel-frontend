@@ -44,6 +44,7 @@ export default {
             commit('setRole', data.user.role)
             commit('setIsPublic', data.user.is_public)
             commit('setIsAdmin', data.user.is_admin)
+            commit('setNewsletter', data.user.newsletter)
             // eslint-disable-next-line no-undef
             this.$router.push('/dashboard')
           } else if (data.user.is_admin !== false && data !== 500) {
@@ -53,6 +54,7 @@ export default {
             commit('setRole', data.user.role)
             commit('setIsPublic', data.user.is_public)
             commit('setIsAdmin', data.user.is_admin)
+            commit('setNewsletter', data.user.newsletter)
             // eslint-disable-next-line no-undef
             this.$router.push('/admin')
           } else {
@@ -68,6 +70,7 @@ export default {
     commit('setRole', null)
     commit('setIsPublic', null)
     commit('setIsAdmin', null)
+    commit('setNewsletter', null)
     this.$router.push('/')
   },
   // Account actions
@@ -101,6 +104,43 @@ export default {
       .then(({ data }) => {
         if (data === 200) {
           commit('setIsPublic', false)
+        } else {
+          // eslint-disable-next-line no-console
+          console.log('Ocorreu um erro.')
+        }
+      })
+  },
+  // Newsletter actions
+  // Subscribe Newsletter
+  Subscribe({ commit, state }) {
+    const subscribe = { newsletter: true }
+    return this.$api
+      .put('/account/change_newsletter', subscribe, {
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      })
+      .then(({ data }) => {
+        if (data === 200) {
+          commit('setNewsletter', true)
+        } else {
+          // eslint-disable-next-line no-console
+          console.log('Ocorreu um erro.')
+        }
+      })
+  },
+  // Unsubscribe Newsletter
+  UnSubscribe({ commit, state }) {
+    const unSubscribe = { newsletter: false }
+    return this.$api
+      .put('/account/change_newsletter', unSubscribe, {
+        headers: {
+          Authorization: `Bearer ${state.token}`,
+        },
+      })
+      .then(({ data }) => {
+        if (data === 200) {
+          commit('setNewsletter', false)
         } else {
           // eslint-disable-next-line no-console
           console.log('Ocorreu um erro.')

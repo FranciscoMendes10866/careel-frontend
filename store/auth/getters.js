@@ -11,4 +11,7 @@ export default {
   whatRole(state) {
     return state.role
   },
+  isSubscribed(state) {
+    return state.newsletter
+  },
 }

@@ -12,4 +12,5 @@ export default () => ({
   isPublic: null,
   isAdmin: null,
   role: null,
+  newsletter: null,
 })

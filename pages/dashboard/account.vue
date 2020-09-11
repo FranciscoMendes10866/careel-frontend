@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <vs-row class="screen" align="center" justify="space-around">
+  <div class="screen">
+    <vs-row align="center" justify="space-around">
       <vs-col w="3">
         <h4>Mudar palavra passe.</h4>
         <ChangePassword />
@@ -14,6 +14,12 @@
         <ChangeAccountPublic />
       </vs-col>
     </vs-row>
+    <vs-row align="center" justify="space-around">
+      <vs-col w="3">
+        <h4>Notícias.</h4>
+        <ChangeNewsletter />
+      </vs-col>
+    </vs-row>
   </div>
 </template>
 
@@ -21,6 +27,7 @@
 import ChangePassword from '@/components/ChangePassword.vue'
 import ChangeEmail from '@/components/ChangeEmail.vue'
 import ChangeAccountPublic from '@/components/ChangeAccountPublic.vue'
+import ChangeNewsletter from '@/components/ChangeNewsletter.vue'
 
 export default {
   layout: 'dashboard',
@@ -28,6 +35,7 @@ export default {
     ChangePassword,
     ChangeEmail,
     ChangeAccountPublic,
+    ChangeNewsletter,
   },
 }
 </script>

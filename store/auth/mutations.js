@@ -32,4 +32,7 @@ export default {
   setRole(state, role) {
     state.role = role
   },
+  setNewsletter(state, newsletter) {
+    state.newsletter = newsletter
+  },
 }
