@@ -153,7 +153,7 @@ export default {
   // Job actions
   // The user found a job
   FoundJob({ commit, state }) {
-    const found = { job: true }
+    const found = { job: true, is_public: false }
     return this.$api
       .put('/account/change_job', found, {
         headers: {
@@ -162,6 +162,7 @@ export default {
       })
       .then(({ data }) => {
         if (data === 200) {
+          commit('setIsPublic', false)
           commit('setJob', true)
         } else {
           // eslint-disable-next-line no-console
@@ -171,7 +172,7 @@ export default {
   },
   // The user is looking for a job
   FindingJob({ commit, state }) {
-    const finding = { job: false }
+    const finding = { job: false, is_public: true }
     return this.$api
       .put('/account/change_job', finding, {
         headers: {
@@ -180,6 +181,7 @@ export default {
       })
       .then(({ data }) => {
         if (data === 200) {
+          commit('setIsPublic', true)
           commit('setJob', false)
         } else {
           // eslint-disable-next-line no-console
