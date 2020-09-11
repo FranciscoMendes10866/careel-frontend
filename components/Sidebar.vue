@@ -104,7 +104,7 @@
         Mensagens
       </vs-sidebar-item>
 
-      <vs-sidebar-item id="account">
+      <vs-sidebar-item id="account" to="/dashboard/account">
         <template #icon>
           <i class="bx bxs-cog"></i>
         </template>
