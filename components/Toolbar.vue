@@ -7,135 +7,68 @@
         </vs-button>
       </template>
       <template #right>
-        <vs-button @click="LogOut">Terminar sessão.</vs-button>
+        <vs-button icon @click="LogOut"
+          ><i class="bx bx-log-out-circle"></i
+          ><template #animate>&nbsp;Sair.&nbsp;</template></vs-button
+        >
       </template>
     </vs-navbar>
     <vs-sidebar v-model="active" absolute :open.sync="activeSidebar">
       <template #logo>
         <!-- ...img logo -->
       </template>
-      <vs-sidebar-item id="home">
+      <vs-sidebar-item id="home" to="/admin">
         <template #icon>
           <i class="bx bx-home"></i>
         </template>
-        Home
-      </vs-sidebar-item>
-      <vs-sidebar-item id="market">
-        <template #icon>
-          <i class="bx bx-grid-alt"></i>
-        </template>
-        Market Overview
-      </vs-sidebar-item>
-      <vs-sidebar-item id="Music">
-        <template #icon>
-          <i class="bx bxs-music"></i>
-        </template>
-        Music
+        Página Principal
       </vs-sidebar-item>
       <vs-sidebar-group>
         <template #header>
           <vs-sidebar-item arrow>
             <template #icon>
-              <i class="bx bx-group"></i>
+              <i class="bx bxl-mailchimp"></i>
             </template>
-            Social media
+            Newsletter
           </vs-sidebar-item>
         </template>
 
-        <vs-sidebar-item id="Instagram">
+        <vs-sidebar-item id="talents" to="/admin/newsletter/talents">
           <template #icon>
-            <i class="bx bxl-instagram"></i>
+            <i class="bx bx-meteor"></i>
           </template>
-          Instagram
+          Talentos
         </vs-sidebar-item>
-        <vs-sidebar-item id="twitter">
+        <vs-sidebar-item id="employers" to="/admin/newsletter/employers">
           <template #icon>
-            <i class="bx bxl-twitter"></i>
+            <i class="bx bx-coin"></i>
           </template>
-          Twitter
+          Empregadores
         </vs-sidebar-item>
-        <vs-sidebar-item id="Facebook">
+        <vs-sidebar-item id="all" to="/admin/newsletter">
           <template #icon>
-            <i class="bx bxl-facebook"></i>
+            <i class="bx bx-diamond"></i>
           </template>
-          Facebook
-        </vs-sidebar-item>
-      </vs-sidebar-group>
-      <vs-sidebar-group>
-        <template #header>
-          <vs-sidebar-item arrow>
-            <template #icon>
-              <i class="bx bx-code-alt"></i>
-            </template>
-            Coding
-          </vs-sidebar-item>
-        </template>
-
-        <vs-sidebar-item id="github">
-          <template #icon>
-            <i class="bx bxl-github"></i>
-          </template>
-          Github
-        </vs-sidebar-item>
-        <vs-sidebar-item id="codepen">
-          <template #icon>
-            <i class="bx bxl-codepen"></i>
-          </template>
-          Codepen
-        </vs-sidebar-item>
-        <vs-sidebar-item id="discord">
-          <template #icon>
-            <i class="bx bxl-discord"></i>
-          </template>
-          Discord
-        </vs-sidebar-item>
-        <vs-sidebar-item id="Javascript">
-          <template #icon>
-            <i class="bx bxl-javascript"></i>
-          </template>
-          Javascript
-        </vs-sidebar-item>
-        <vs-sidebar-item id="git">
-          <template #icon>
-            <i class="bx bxl-git"></i>
-          </template>
-          Git
+          Todos
         </vs-sidebar-item>
       </vs-sidebar-group>
-      <vs-sidebar-item id="donate">
+      <vs-sidebar-item id="ban" to="/admin/ban">
         <template #icon>
-          <i class="bx bxs-donate-heart"></i>
+          <i class="bx bx-shield-x"></i>
         </template>
-        Donate
+        Banir
       </vs-sidebar-item>
-      <vs-sidebar-item id="drink">
+      <vs-sidebar-item id="stats" to="/admin/stats">
         <template #icon>
-          <i class="bx bx-drink"></i>
+          <i class="bx bx-stats"></i>
         </template>
-        Drink
-      </vs-sidebar-item>
-      <vs-sidebar-item id="shopping">
-        <template #icon>
-          <i class="bx bxs-shopping-bags"></i>
-        </template>
-        Shopping
-      </vs-sidebar-item>
-      <vs-sidebar-item id="chat">
-        <template #icon>
-          <i class="bx bx-chat"></i>
-        </template>
-        Chat
+        Estatísticas
       </vs-sidebar-item>
       <template #footer>
         <vs-row justify="space-between">
-          <vs-avatar>
-            <img src="/avatars/avatar-5.png" alt="" />
-          </vs-avatar>
-
           <vs-avatar badge-color="danger" badge-position="top-right">
-            <i class="bx bx-bell"></i>
-
-            <template #badge> 28 </template>
+            <i class="bx bxs-magnet"></i>
+            <template #badge> 29867 </template>
           </vs-avatar>
         </vs-row>
       </template>
