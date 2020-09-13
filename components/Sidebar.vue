@@ -97,7 +97,7 @@
         Apreciações
       </vs-sidebar-item>
 
-      <vs-sidebar-item id="inbox">
+      <vs-sidebar-item id="inbox" to="/dashboard/inbox">
         <template #icon>
           <i class="bx bxs-inbox"></i>
         </template>
@@ -109,6 +109,13 @@
           <i class="bx bxs-cog"></i>
         </template>
         Conta
+      </vs-sidebar-item>
+
+      <vs-sidebar-item id="security" to="/dashboard/security">
+        <template #icon>
+          <i class="bx bx-check-shield"></i>
+        </template>
+        Segurança
       </vs-sidebar-item>
 
       <vs-sidebar-item id="chat" to="/dashboard/help">
