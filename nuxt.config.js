@@ -40,7 +40,12 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['@/plugins/vuesax', '@/plugins/axios', '@/plugins/moment'],
+  plugins: [
+    '@/plugins/vuesax',
+    '@/plugins/axios',
+    '@/plugins/moment',
+    { src: '@/plugins/persist', ssr: false },
+  ],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components

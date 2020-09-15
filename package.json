@@ -16,7 +16,8 @@
     "moment-timezone": "^0.5.31",
     "nuxt": "^2.14.0",
     "vue-moment": "^4.1.0",
-    "vuesax": "^4.0.1-alpha.23"
+    "vuesax": "^4.0.1-alpha.23",
+    "vuex-persist": "^2.2.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",
