@@ -12,7 +12,7 @@
             </vs-tr>
           </template>
           <template #tbody>
-            <vs-tr v-for="(tr, i) in $vs.getPage(users, page, max)" :key="i">
+            <vs-tr v-for="(tr, i) in $vs.getPage(devices, page, max)" :key="i">
               <vs-td>{{ tr.device_platform }}</vs-td>
               <vs-td>{{ tr.device_product }}</vs-td>
               <vs-td>{{ tr.login_date }}</vs-td>
@@ -34,7 +34,10 @@
             </vs-tr>
           </template>
           <template #footer>
-            <vs-pagination v-model="page" :length="$vs.getLength(users, max)" />
+            <vs-pagination
+              v-model="page"
+              :length="$vs.getLength(devices, max)"
+            />
           </template>
         </vs-table>
       </vs-col>
@@ -44,50 +47,29 @@
 
 <script>
 export default {
-  layout: 'dashboard',
   data: () => ({
     active: 0,
     page: 1,
     max: 3,
-    users: [
-      {
-        id: 1,
-        device_platform: 'Mac',
-        device_product: 'Firefox',
-        login_date: '2020-09-15T15:53:51.079Z',
-      },
-      {
-        id: 2,
-        device_platform: 'Windows',
-        device_product: 'Opera',
-        login_date: '2020-09-15T15:53:51.079Z',
-      },
-      {
-        id: 3,
-        device_platform: 'Ubuntu',
-        device_product: 'Chromium',
-        login_date: '2020-09-15T15:53:51.079Z',
-      },
-      {
-        id: 4,
-        device_platform: 'Mac',
-        device_product: 'Microsoft Edge',
-        login_date: '2020-09-15T15:53:51.079Z',
-      },
-      {
-        id: 5,
-        device_platform: 'Fedora',
-        device_product: 'Firefox',
-        login_date: '2020-09-15T15:53:51.079Z',
-      },
-      {
-        id: 6,
-        device_platform: 'Kubuntu',
-        device_product: 'Chrome Based',
-        login_date: '2020-09-15T15:53:51.079Z',
-      },
-    ],
+    devices: [],
   }),
+  created() {
+    this.$api
+      .get('/account/get_devices', {
+        headers: {
+          Authorization: `Bearer ${this.$store.state.auth.token}`,
+        },
+      })
+      .then(({ data }) => {
+        // eslint-disable-next-line no-console
+        this.devices = data.devices
+      })
+      .catch(() => {
+        // eslint-disable-next-line no-console
+        console.log('Ocorreu um erro.')
+      })
+  },
+  layout: 'dashboard',
 }
 </script>
 
