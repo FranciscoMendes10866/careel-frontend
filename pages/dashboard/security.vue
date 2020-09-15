@@ -19,19 +19,19 @@
               <vs-td>{{ tr.device_platform }}</vs-td>
               <vs-td>{{ tr.device_product }}</vs-td>
               <vs-td>
-                <vs-tooltip left danger>
+                <vs-tooltip v-if="tr.device_allowed == true" right danger>
                   <vs-button danger flat icon>
                     <i class="bx bx-lock-alt"></i>
                   </vs-button>
                   <template #tooltip>Bloquear dispositivo.</template>
                 </vs-tooltip>
                 <!-- Unlock Button -->
-                <!-- <vs-tooltip left success>
+                <vs-tooltip v-if="tr.device_allowed == false" right success>
                   <vs-button success flat icon>
                     <i class="bx bx-lock-open-alt"></i>
                   </vs-button>
                   <template #tooltip>Desbloquear dispositivo.</template>
-                </vs-tooltip> -->
+                </vs-tooltip>
               </vs-td>
             </vs-tr>
           </template>
