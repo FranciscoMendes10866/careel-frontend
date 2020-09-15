@@ -7,7 +7,7 @@
             <vs-tr>
               <vs-th>Data de acesso</vs-th>
               <vs-th>Plataforma</vs-th>
-              <vs-th>Browser</vs-th>
+              <vs-th>Navegador</vs-th>
               <vs-th>Ações</vs-th>
             </vs-tr>
           </template>
