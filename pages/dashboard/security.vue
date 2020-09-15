@@ -5,17 +5,19 @@
         <vs-table striped>
           <template #thead>
             <vs-tr>
-              <vs-th>Sistema Operativo</vs-th>
-              <vs-th>Browser</vs-th>
               <vs-th>Data de acesso</vs-th>
+              <vs-th>Plataforma</vs-th>
+              <vs-th>Browser</vs-th>
               <vs-th>Ações</vs-th>
             </vs-tr>
           </template>
           <template #tbody>
             <vs-tr v-for="(tr, i) in $vs.getPage(devices, page, max)" :key="i">
+              <vs-td>{{
+                tr.login_date | moment('timezone', 'Europe/Lisbon', 'LLLL')
+              }}</vs-td>
               <vs-td>{{ tr.device_platform }}</vs-td>
               <vs-td>{{ tr.device_product }}</vs-td>
-              <vs-td>{{ tr.login_date }}</vs-td>
               <vs-td>
                 <vs-tooltip left danger>
                   <vs-button danger flat icon>
@@ -48,7 +50,6 @@
 <script>
 export default {
   data: () => ({
-    active: 0,
     page: 1,
     max: 3,
     devices: [],
