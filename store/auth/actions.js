@@ -31,7 +31,12 @@ export default {
     const clientState = {
       email: state.loginEmail,
       password: state.loginPassword,
+      device_platform: this.$ua.os(),
+      device_product: this.$ua.browser(),
+      device_type: this.$ua.deviceType(),
     }
+    // eslint-disable-next-line no-console
+    console.log(clientState)
     return (
       this.$api
         .post('/auth/sign_in', clientState)

@@ -6,6 +6,7 @@
           <template #thead>
             <vs-tr>
               <vs-th>Data de acesso</vs-th>
+              <vs-th>Sistema</vs-th>
               <vs-th>Plataforma</vs-th>
               <vs-th>Navegador</vs-th>
               <vs-th>Ações</vs-th>
@@ -17,6 +18,7 @@
                 tr.login_date | moment('timezone', 'Europe/Lisbon', 'LLLL')
               }}</vs-td>
               <vs-td>{{ tr.device_platform }}</vs-td>
+              <vs-td>{{ tr.device_type }}</vs-td>
               <vs-td>{{ tr.device_product }}</vs-td>
               <vs-td>
                 <vs-tooltip v-if="tr.device_allowed == true" right danger>

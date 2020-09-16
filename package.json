@@ -15,6 +15,7 @@
     "moment": "^2.28.0",
     "moment-timezone": "^0.5.31",
     "nuxt": "^2.14.0",
+    "nuxt-user-agent": "^1.2.2",
     "vue-moment": "^4.1.0",
     "vuesax": "^4.0.1-alpha.23",
     "vuex-persist": "^2.2.0"
