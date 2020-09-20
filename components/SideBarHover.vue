@@ -39,9 +39,8 @@
             <template #animate>Sair</template>
           </vs-button>
 
-          <vs-avatar badge-color="danger" badge-position="top-right">
-            <i class="bx bx-bell"></i>
-            <template #badge> 28 </template>
+          <vs-avatar dark badge badge-color="success">
+            <i class="bx bx-space-bar"></i>
           </vs-avatar>
         </vs-row>
       </template>
