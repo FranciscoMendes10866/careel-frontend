@@ -35,8 +35,6 @@ export default {
       device_product: this.$ua.browser(),
       device_type: this.$ua.deviceType(),
     }
-    // eslint-disable-next-line no-console
-    console.log(clientState)
     return (
       this.$api
         .post('/auth/sign_in', clientState)

@@ -12,6 +12,11 @@ export default {
   components: {
     Toolbar,
   },
+  middleware({ store, redirect }) {
+    if (store.state.auth.token === null) {
+      return redirect('/app/signin')
+    }
+  },
 }
 </script>
 

@@ -14,11 +14,18 @@
       >
         Empregadores
       </vs-navbar-item>
-      <vs-navbar-item id="about" to="/about" :active="active == 'about'">
-        Sobre
+      <vs-navbar-item
+        id="sponsors"
+        to="/sponsors"
+        :active="active == 'sponsors'"
+      >
+        Patrocinadores
       </vs-navbar-item>
       <vs-navbar-item id="terms" to="/terms" :active="active == 'terms'">
         Termos e Condições
+      </vs-navbar-item>
+      <vs-navbar-item id="about" to="/about" :active="active == 'about'">
+        Sobre
       </vs-navbar-item>
       <template #right>
         <vs-button flat to="/app/signin">Iniciar sessão.</vs-button>

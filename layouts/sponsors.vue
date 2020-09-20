@@ -12,6 +12,11 @@ export default {
   components: {
     SidebarHover,
   },
+  middleware({ store, redirect }) {
+    if (store.state.auth.token === null) {
+      return redirect('/app/signin')
+    }
+  },
 }
 </script>
 
