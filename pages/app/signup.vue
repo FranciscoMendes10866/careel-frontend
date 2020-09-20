@@ -54,6 +54,14 @@
                 @input="handleRegisterRole"
                 >Empregador</vs-radio
               >
+              <vs-radio
+                v-model="picked"
+                label-after
+                val="sponsor"
+                class="m-y"
+                @input="handleRegisterRole"
+                >Patrocinador</vs-radio
+              >
             </div>
             <vs-checkbox
               v-model="localTerms"

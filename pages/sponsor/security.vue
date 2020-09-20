@@ -11,6 +11,6 @@ export default {
   components: {
     SecurityComponent,
   },
-  layout: 'dashboard',
+  layout: 'sponsors',
 }
 </script>

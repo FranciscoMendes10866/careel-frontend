@@ -42,7 +42,11 @@ export default {
         .post('/auth/sign_in', clientState)
         // eslint-disable-next-line no-console
         .then(({ data }) => {
-          if (data.user.is_admin !== true && data !== 500) {
+          if (
+            data.user.is_admin !== true &&
+            data.user.role !== 'sponsor' &&
+            data !== 500
+          ) {
             commit('setLoginEmail', null)
             commit('setLoginPassword', null)
             commit('setToken', data.token)
@@ -53,7 +57,11 @@ export default {
             commit('setJob', data.user.job)
             // eslint-disable-next-line no-undef
             this.$router.push('/dashboard')
-          } else if (data.user.is_admin !== false && data !== 500) {
+          } else if (
+            data.user.is_admin !== false &&
+            data.user.role !== 'sponsor' &&
+            data !== 500
+          ) {
             commit('setLoginEmail', null)
             commit('setLoginPassword', null)
             commit('setToken', data.token)
@@ -64,6 +72,21 @@ export default {
             commit('setJob', data.user.job)
             // eslint-disable-next-line no-undef
             this.$router.push('/admin')
+          } else if (
+            data.user.is_admin !== true &&
+            data.user.role === 'sponsor' &&
+            data !== 500
+          ) {
+            commit('setLoginEmail', null)
+            commit('setLoginPassword', null)
+            commit('setToken', data.token)
+            commit('setRole', data.user.role)
+            commit('setIsPublic', data.user.is_public)
+            commit('setIsAdmin', data.user.is_admin)
+            commit('setNewsletter', data.user.newsletter)
+            commit('setJob', data.user.job)
+            // eslint-disable-next-line no-undef
+            this.$router.push('/sponsor')
           } else {
             // eslint-disable-next-line no-console
             console.log('Ocorreu um erro.')
