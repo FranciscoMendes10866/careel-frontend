@@ -21,14 +21,14 @@
             <vs-td>{{ tr.device_product }}</vs-td>
             <vs-td>
               <vs-tooltip v-if="tr.device_allowed == true" right danger>
-                <vs-button danger flat icon>
+                <vs-button danger flat icon @click="BlockDevice(tr)">
                   <i class="bx bx-lock-alt"></i>
                 </vs-button>
                 <template #tooltip>Bloquear dispositivo.</template>
               </vs-tooltip>
               <!-- Unlock Button -->
               <vs-tooltip v-if="tr.device_allowed == false" right success>
-                <vs-button success flat icon>
+                <vs-button success flat icon @click="UnblockDevice(tr)">
                   <i class="bx bx-lock-open-alt"></i>
                 </vs-button>
                 <template #tooltip>Desbloquear dispositivo.</template>
@@ -47,25 +47,65 @@
 <script>
 export default {
   data: () => ({
+    device: {
+      id: null,
+      device_platform: null,
+      device_type: null,
+      device_product: null,
+      device_allowed: null,
+    },
     page: 1,
     max: 3,
     devices: [],
   }),
-  created() {
-    this.$api
-      .get('/account/get_devices', {
-        headers: {
-          Authorization: `Bearer ${this.$store.state.auth.token}`,
-        },
-      })
-      .then(({ data }) => {
+  mounted() {
+    this.FetchSecurity()
+  },
+  methods: {
+    FetchSecurity() {
+      this.$api
+        .get('/account/get_devices', {
+          headers: {
+            Authorization: `Bearer ${this.$store.state.auth.token}`,
+          },
+        })
+        .then(({ data }) => {
+          // eslint-disable-next-line no-console
+          this.devices = data.devices
+        })
+        .catch(() => {
+          // eslint-disable-next-line no-console
+          console.log('Ocorreu um erro.')
+        })
+    },
+    BlockDevice(tr) {
+      this.device = tr
+      const componentState = { device_allowed: false }
+      this.$api
+        .put(`/account/update_device/${tr.id}`, componentState, {
+          headers: {
+            Authorization: `Bearer ${this.$store.state.auth.token}`,
+          },
+        })
         // eslint-disable-next-line no-console
-        this.devices = data.devices
-      })
-      .catch(() => {
+        .then(() => this.FetchSecurity())
         // eslint-disable-next-line no-console
-        console.log('Ocorreu um erro.')
-      })
+        .catch(() => console.log('Deu erro.'))
+    },
+    UnblockDevice(tr) {
+      this.device = tr
+      const componentState = { device_allowed: true }
+      this.$api
+        .put(`/account/update_device/${tr.id}`, componentState, {
+          headers: {
+            Authorization: `Bearer ${this.$store.state.auth.token}`,
+          },
+        })
+        // eslint-disable-next-line no-console
+        .then(() => this.FetchSecurity())
+        // eslint-disable-next-line no-console
+        .catch(() => console.log('Deu erro.'))
+    },
   },
 }
 </script>
